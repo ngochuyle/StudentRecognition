@@ -5,10 +5,10 @@ import lombok.*;
 
 import java.util.Set;
 
-@Getter  // Tạo getters tự động cho tất cả trường
-@Setter  // Tạo setters tự động cho tất cả trường
-@NoArgsConstructor  // Tạo constructor không tham số
-@AllArgsConstructor  // Tạo constructor với tất cả trường làm tham số
+@Getter  // getters
+@Setter  // setters
+@NoArgsConstructor  // constructor without parameter
+@AllArgsConstructor  // constructor with parameter
 @Entity
 @Table(name = "course")
 public class CourseEntity {
@@ -26,8 +26,8 @@ public class CourseEntity {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<CourseEnrollmentEntity> enrollments;
 
-    @ManyToOne(fetch = FetchType.LAZY)  // Mối quan hệ nhiều-đến-một với Professors
-    @JoinColumn(name = "ProfessorID")  // Khóa ngoại tham chiếu tới Professors
+    @ManyToOne(fetch = FetchType.LAZY)  // Relationship 1:n with Professors
+    @JoinColumn(name = "ProfessorID")  // foreign key in Professors
     private ProfessorEntity professor;
 
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

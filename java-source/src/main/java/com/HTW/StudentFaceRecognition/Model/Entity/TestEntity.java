@@ -24,11 +24,11 @@ public class TestEntity {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CourseID") // Tên cột khóa ngoại liên kết đến bảng course
+    @JoinColumn(name = "CourseID")
     private CourseEntity course;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CreatorPersonnelID") // Tên cột khóa ngoại liên kết đến bảng personnel
+    @JoinColumn(name = "CreatorPersonnelID")
     private PersonnelEntity creator;
 
     @OneToMany(mappedBy = "test", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

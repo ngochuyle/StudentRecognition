@@ -64,13 +64,13 @@ public class CustomRequestHeaderTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        // Định nghĩa đường dẫn mà bạn không muốn filter này áp dụng
-        String pathToExclude = "/signin";  // Thay đổi thành đường dẫn cụ thể bạn muốn loại trừ
+        //Defines the path to which this filter does not apply
+        String pathToExclude = "/signin";
 
-        // Lấy URI hiện tại từ request
+        // current request
         String path = request.getRequestURI();
 
-        // Kiểm tra xem path hiện tại có phải là path cần loại trừ không
+        // Check if the current path is the path to be excluded
         return path.equals(pathToExclude)|| path.startsWith("/images/");
     }
 }

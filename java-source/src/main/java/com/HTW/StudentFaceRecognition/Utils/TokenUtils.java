@@ -57,9 +57,4 @@ public class TokenUtils {
         return credentials;
 
     }
-
-    /*public static void main(String[] args) {
-        String token ="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJodXkiLCJpYXQiOjE3MDM2NzYyMzYsImV4cCI6MTcwMzY3OTgzNn0.kuec_qr6f_7Y9KQKXXlBi35IfBQ3sFVFqhBknGFh3OA";
-        log.info("Test: "+ getUsernameFromJWTUserToken(token));
-    }*/
 }

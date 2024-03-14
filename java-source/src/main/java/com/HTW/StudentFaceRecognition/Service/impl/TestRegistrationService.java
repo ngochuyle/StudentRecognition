@@ -45,7 +45,7 @@ public class TestRegistrationService implements ITestRegistrationService {
                         .participated(participated)
                         .build();
                 result.add(testReponse);
-                // Xử lý hoặc in ra thông tin
+
                 log.info("Test: " + testEntities.getTitle() + ", Score: " + score + ", Participated: " + participated);
             }
             return  result;

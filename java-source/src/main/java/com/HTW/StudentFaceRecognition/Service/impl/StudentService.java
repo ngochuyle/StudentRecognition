@@ -207,7 +207,7 @@ public class StudentService implements IStudentService {
             return  false;
         }
 
-        // Kiểm tra sNummer hợp lệ và tạo đường dẫn cho thư mục
+        // Check the sNummer is valid and create a path for the directory
         if (sNummer == null || sNummer.isEmpty() || !sNummer.startsWith("s")) {
             log.info("sNummer not valid");
             return false;
@@ -223,7 +223,7 @@ public class StudentService implements IStudentService {
         log.info("pythonPath" + pythonPath);
         try {
             AIUltils.trainModel(imagePath, pklPath, studentID, pythonPath);
-            log.info("Thanh cong");
+            log.info("sucess");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -235,7 +235,7 @@ public class StudentService implements IStudentService {
             studentReposioty.save(studentEntity);
             return true;
         } catch (Exception e) {
-            throw new RuntimeException("Lỗi khi lưu thông tin sinh viên: ", e);
+            throw new RuntimeException("Error when saving student information: ", e);
         }
     }
 
@@ -250,7 +250,6 @@ public class StudentService implements IStudentService {
             name = "%" + studentRequest.getSNummer() + "%";
         }
 
-        // Tương tự, thêm wildcards vào sNummer
         List<StudentEntity> studentEntities = studentReposioty.findByCustomStudent(name, sNummer, studentRequest.getCourseIDs());
         List<StudentReponse> studentReponses = new ArrayList<>();
         if (studentEntities.size() > 0) {
@@ -264,7 +263,7 @@ public class StudentService implements IStudentService {
                 studentReponses.add(studentReponse);
             }
         } else {
-            log.info("không tồn tại");
+            log.info("does not exist");
         }
         return studentReponses;
     }
@@ -278,19 +277,17 @@ public class StudentService implements IStudentService {
                 log.info("Deletion attempt for non-existent student ID: {}", id);
                 return false;
             }
-            log.info("xóa test");
-            // Xóa các bản ghi liên quan từ TestRegistration và CourseEnrollment
+            log.info("delete test");
+            // Delete related records from TestRegistration and CourseEnrollment
             testRegistrationRepository.deleteByStudentId(id);
-            log.info("xóa course");
+            log.info("delete course");
             courseEnrollmentRepository.deleteByStudentId(id);
             FileUItils.deleteDirectory(FileConstant.BASE_PATH + studentReposioty.findSNumberById(id).get().substring(1));
             log.info("delete: " + FileConstant.BASE_PATH + studentReposioty.findSNumberById(id).get());
             AIUltils.deleteByNummerPy(studentReposioty.findSNumberById(id).get().substring(1));
-            // Xóa học sinh
+            // delete Student
             studentReposioty.deleteById(id);
-            // xóa file
 
-            // Kiểm tra lại để đảm bảo học sinh đã được xóa
             if (!studentReposioty.existsById(id)) {
 
                 log.info("Student with ID: {} has been successfully deleted.", id);
@@ -320,7 +317,7 @@ public class StudentService implements IStudentService {
                 studentReponses.add(studentReponse);
             }
         } else {
-            log.info("không tồn tại");
+            log.info("does not exist");
         }
         log.info("studentReponses" + studentReponses);
         return studentReponses;
@@ -331,38 +328,36 @@ public class StudentService implements IStudentService {
     }
 
     boolean createFile(StudentRequest studentRequest) {
-        String nummer = getNummerVonSNummer(studentRequest.getSNummer()); // Bỏ đi chữ 's' đầu tiên
+        String nummer = getNummerVonSNummer(studentRequest.getSNummer()); // Leave out the first 's'
         log.info("snummer: " + nummer);
         Path studentDirPath = Paths.get(FileConstant.BASE_PATH + nummer);
         log.info("studentDirPath: " + studentDirPath);
         Path originalImagesDirPath = studentDirPath.resolve("OriginalImages");
         log.info("orginal:  " + originalImagesDirPath);
         try {
-            // Tạo thư mục nếu chưa tồn tại
+            // Create a directory if it doesn't exist
             Files.createDirectories(originalImagesDirPath);
 
-            int imageCounter = 1; // Đếm số thứ tự của ảnh
+            int imageCounter = 1;
             for (MultipartFile image : studentRequest.getImages()) {
                 if (image.isEmpty()) {
                     continue;
                 }
-
                 String imageFileName = String.format("%s_original_%d.jpg", nummer, imageCounter++);
                 Path imagePath = originalImagesDirPath.resolve(imageFileName);
 
-                // Lưu file ảnh
+                // Img Folder save
                 Files.copy(image.getInputStream(), imagePath, StandardCopyOption.REPLACE_EXISTING);
 
             }
 
             return true;
         } catch (IOException e) {
-            // Xử lý ngoại lệ
             return false;
         }
     }
     boolean createFileByPath(StudentRequest studentRequest,String Snummer) {
-        String nummer = getNummerVonSNummer(Snummer); // Bỏ đi chữ 's' đầu tiên
+        String nummer = getNummerVonSNummer(Snummer); // Leave out the first 's'
         FileUItils.deleteDirectory(FileConstant.BASE_PATH + nummer);
         log.info("snummer: " + nummer);
         Path studentDirPath = Paths.get(FileConstant.BASE_PATH + nummer);
@@ -370,10 +365,9 @@ public class StudentService implements IStudentService {
         Path originalImagesDirPath = studentDirPath.resolve("OriginalImages");
         log.info("orginal:  " + originalImagesDirPath);
         try {
-            // Tạo thư mục nếu chưa tồn tại
             Files.createDirectories(originalImagesDirPath);
 
-            int imageCounter = 1; // Đếm số thứ tự của ảnh
+            int imageCounter = 1;
             for (MultipartFile image : studentRequest.getImages()) {
                 if (image.isEmpty()) {
                     continue;
@@ -382,14 +376,14 @@ public class StudentService implements IStudentService {
                 String imageFileName = String.format("%s_original_%d.jpg", nummer, imageCounter++);
                 Path imagePath = originalImagesDirPath.resolve(imageFileName);
 
-                // Lưu file ảnh
+
                 Files.copy(image.getInputStream(), imagePath, StandardCopyOption.REPLACE_EXISTING);
 
             }
 
             return true;
         } catch (IOException e) {
-            // Xử lý ngoại lệ
+
             return false;
         }
     }

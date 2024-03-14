@@ -23,19 +23,6 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-    /*@GetMapping("/student/{id}")
-    public StudentEntity getStudentByID(@PathVariable Long id) {
-        Optional<StudentEntity> result = studentReposioty.findById(id);
-        StudentEntity student = null;
-        if (result.isPresent()) {
-            student = result.get();
-            log.info("Student found: " + student);
-        } else {
-            log.info("No student found with ID: " + id);
-        }
-        return student;
-    }*/
-
     @GetMapping("/images/")
     public String getIMGByID() {
         String basePath = "http://localhost:8080/student/img/";

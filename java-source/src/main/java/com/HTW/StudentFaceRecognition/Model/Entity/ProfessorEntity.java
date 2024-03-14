@@ -5,10 +5,10 @@ import lombok.*;
 
 import java.util.Set;
 
-@Getter  // Tạo getters tự động cho tất cả trường
-@Setter  // Tạo setters tự động cho tất cả trường
-@NoArgsConstructor  // Tạo constructor không tham số
-@AllArgsConstructor  // Tạo constructor với tất cả trường làm tham số
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "professor")
 public class ProfessorEntity {

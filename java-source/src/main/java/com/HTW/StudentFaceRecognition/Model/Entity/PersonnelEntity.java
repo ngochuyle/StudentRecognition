@@ -10,8 +10,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor // Tạo constructor không tham số
-@AllArgsConstructor // Tạo constructor với tất cả tham số
+@NoArgsConstructor
+@AllArgsConstructor
 public class PersonnelEntity {
 
     @Id

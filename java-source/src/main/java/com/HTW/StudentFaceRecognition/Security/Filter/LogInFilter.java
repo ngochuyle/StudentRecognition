@@ -55,13 +55,8 @@ public class LogInFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        // Định nghĩa đường dẫn mà bạn muốn filter này áp dụng
-        String pathToApply = "/signin";  // Thay đổi thành đường dẫn cụ thể bạn muốn áp dụng
-
-        // Lấy URI hiện tại từ request
+        String pathToApply = "/signin";
         String path = request.getRequestURI();
-
-        // Kiểm tra xem path hiện tại có phải là path mà filter này áp dụng không
         return !path.equals(pathToApply);
     }
 

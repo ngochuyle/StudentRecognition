@@ -10,16 +10,16 @@ import java.util.Base64;
 @Log4j2
 public class SecurityUtils {
     public static UsernamePasswordAuthenticationToken getUnauthenticatedToken(String headerToken) {
-        // Khởi tạo một token không xác thực với thông tin rỗng
+        // Initialize an unauthenticated token with empty information
         UsernamePasswordAuthenticationToken unAuthenticatedToken = new UsernamePasswordAuthenticationToken("", "");
 
-        // Kiểm tra xem header có tồn tại và đúng định dạng không
+        // Check if the header exists and is in the correct format
         if (!isAuthorizationHeaderValid(headerToken, SecurityConstant.BASIC_TOKEN_PREFIX)) {
             log.info("Authorization header is missing, empty, or does not start with 'Basic'");
             return unAuthenticatedToken;
         }
 
-        // Loại bỏ tiền tố 'Basic ' và giải mã giá trị từ Base64
+        // Remove the 'Basic ' prefix and decode the value from Base64
         String base64Credentials = headerToken.substring(SecurityConstant.BASIC_TOKEN_PREFIX.length()).trim();
         String decodedCredentials;
         try {
@@ -29,14 +29,14 @@ public class SecurityUtils {
             return unAuthenticatedToken;
         }
 
-        // Tách chuỗi để lấy username và password
+        // Split the string to get the username and password
         String[] credentials = decodedCredentials.split(":", 2);
         if (credentials.length != 2 || !StringUtils.hasText(credentials[0]) || !StringUtils.hasText(credentials[1])) {
             log.info("Invalid format of decoded credentials. Expected format is 'username:password'.");
             return unAuthenticatedToken;
         }
 
-        // Trả về một token có thông tin từ header
+        // Returns a token with information from the header
         return new UsernamePasswordAuthenticationToken(credentials[0], credentials[1]);
     }
 
