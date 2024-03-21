@@ -46,11 +46,13 @@ Before running the project, please ensure that the following environments are in
    venv\Scripts\activate
    pip install -r requirements.txt
 2. Client: Navigate to the ./template/my-project directory:
-   - Yarn install
-   - Yarn run dev
-3. Server: Navigate to the java/ directory:
-   - mvn clean install
-   - Copy the .jar file in the newly generated target to the original directory. Follow the steps as described above.
+   ```bash
+   Yarn install
+   Yarn run dev
+4. Server: Navigate to the java/ directory:
+   ```bash
+    mvn clean install
+Copy the .jar file in the newly generated target to the original directory. Follow the steps as described above.
 
 Note: When adding new students, ensure that each student has 3 photos, and no student has the same photo as another student. For testing purposes, I have also created an image folder for the student ID. It can be found under ./server-anwendung/img/testIMG.
 Furthermore, the database currently has students: s79547 – s79550.
@@ -60,8 +62,10 @@ Administrator account: Username: admin, Password: 123456.
 
 To run the project, please follow these steps:
 - Run Java Serve: Navigate to the directory path: ./server-anwendung/
+  ```bash
   java -jar StudentFaceRecognition-0.0.2.jar
 - Run the Client:
+  ```bash
   cd ./template/my-project/
   yarn run dev
 
