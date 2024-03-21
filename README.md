@@ -1,5 +1,13 @@
 # StudentRecognition
 Welcome to my project repository! This project is an application that integrates knowledge acquired at HTW (University of Applied Sciences) along with insights gained during internship periods. My focus lies in addressing a specific issue: "student attendance tracking through facial recognition." I've developed a website to fulfill this function, incorporating applications and features for student management, exams, and facial recognition-based attendance tracking.
+## Table of Contents
+- [Algorithm Overview](#algorithm-overview)
+- [Technologies Used](#technologies-used)
+- [Project Deployment](#project-deployment)
+  - [Project Environment Setup](#project-environment-setup)
+  - [Install](#install)
+  - [Running the Project Instructions](#running-the-project-instructions)
+- [Contact Information](#contact-information)
 
 ## Algorithm Overview:
 
@@ -58,7 +66,7 @@ Note: When adding new students, ensure that each student has 3 photos, and no st
 Furthermore, the database currently has students: s79547 – s79550.
 Administrator account: Username: admin, Password: 123456.
 
-## Running the Project Instructions:
+### Running the Project Instructions:
 
 To run the project, please follow these steps:
 - Run Java Serve: Navigate to the directory path: ./server-anwendung/
@@ -68,7 +76,6 @@ To run the project, please follow these steps:
   ```bash
   cd ./template/my-project/
   yarn run dev
-
 
 ## Contact Information:
 
