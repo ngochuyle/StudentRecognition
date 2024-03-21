@@ -20,7 +20,51 @@ During backend development, emphasis was placed on object-oriented programming, 
 
 ## Project Deployment:
 
-(A B C - Add deployment steps here)
+### Project Environment Setup
+
+Before running the project, please ensure that the following environments are installed:
+
+1. Java:
+   - Java. Recommended Version: Java 17.
+   - Install Maven.
+
+2. Python:
+   - Python3.
+
+3. Frontend:
+   - NodeJS.
+   - npm.
+   - Yarn.
+
+4. MySQL:
+   Please ensure that the root account has the password 12345 (the password is packed in the JAR file). The source code can be adjusted in the application.properties file.
+
+### Install
+1. Python: Navigate to the ./python directory.
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+2. Client: Navigate to the ./template/my-project directory:
+   - Yarn install
+   - Yarn run dev
+3. Server: Navigate to the java/ directory:
+   - mvn clean install
+   - Copy the .jar file in the newly generated target to the original directory. Follow the steps as described above.
+
+Note: When adding new students, ensure that each student has 3 photos, and no student has the same photo as another student. For testing purposes, I have also created an image folder for the student ID. It can be found under ./server-anwendung/img/testIMG.
+Furthermore, the database currently has students: s79547 – s79550.
+Administrator account: Username: admin, Password: 123456.
+
+## Running the Project Instructions:
+
+To run the project, please follow these steps:
+- Run Java Serve: Navigate to the directory path: ./server-anwendung/
+  java -jar StudentFaceRecognition-0.0.2.jar
+- Run the Client:
+  cd ./template/my-project/
+  yarn run dev
+
 
 ## Contact Information:
 
