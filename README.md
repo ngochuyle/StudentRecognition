@@ -6,7 +6,7 @@ Welcome to my project repository! This project is an application that integrates
 I tackle the facial recognition task using the following algorithms:
 - MTCNN: Detects faces in images.
 - Facenetz: Extracts features into vectors.
-- Cosine Similarity: Compares two vectors.
+- Euclidean space: Compares two vectors.
 Detailed algorithmic theory can be found in Document A.
 
 ## Technologies Used:
