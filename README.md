@@ -17,6 +17,7 @@ I tackle the facial recognition task using the following algorithms:
 - MTCNN: Detects faces in images.
 - Facenetz: Extracts features into vectors.
 - Euclidean space: Compares two vectors.
+  
 Detailed algorithmic theory can be found in ./Bachelorarbeit.pdf.
 
 ## Technologies Used:
@@ -81,6 +82,7 @@ To run the project, please follow these steps:
 
 ## Contact Information:
 
-For direct communication, feel free to reach out via GitHub. For any inquiries, please email me at ngochuyle191@gmail.com.
+If you have any questions, please contact email A.
+Furthermore, you can find my CV at ./doc/.
 
 Thank you for your interest in my project!
