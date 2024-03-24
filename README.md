@@ -1,7 +1,7 @@
 # StudentRecognition
 Welcome to my project repository!
 
-This project is an application that integrates knowledge acquired at HTW (University of Applied Sciences) along with insights gained during internship periods. My focus lies in addressing a specific issue: "student attendance tracking through facial recognition." I've developed a website to fulfill this function, incorporating applications and features for student management, exams, and facial recognition-based attendance tracking.
+This project is an application that integrates knowledge acquired at HTW (University of Applied Sciences) along with insights gained during internship periods. My focus lies in addressing a specific issue: "Student attendance using facial recognition". I've developed a website to fulfill this function, incorporating applications and features for student management, exams, and facial recognition-based attendance tracking.
 ## Table of Contents
 - [Algorithm Overview](#algorithm-overview)
 - [Technologies Used](#technologies-used)
