@@ -82,7 +82,6 @@ To run the project, please follow these steps:
 
 ## Contact Information:
 
-If you have any questions, please contact email A.
-Furthermore, you can find my CV at ./doc/.
+If you have any questions, please contact email ngochuyle191@gmail.com.
 
 Thank you for your interest in my project!
